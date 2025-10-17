@@ -11,8 +11,6 @@ ENV PHP_VERSION=8.1
 # 假设你的配置文件位于 Dockerfile 同目录下
 COPY entrypoint.sh /entrypoint.sh
 COPY reboot.sh /usr/local/sbin/reboot
-COPY default.conf /etc/nginx/sites-available/default
-COPY supervisord.sample.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN export DEBIAN_FRONTEND=noninteractive; \
     apt-get update; \
@@ -49,6 +47,9 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     \
     # 确保 /run/php/ 目录存在，PHP-FPM socket 将在这里创建
     mkdir -p /run/php;
+    
+COPY default.conf /etc/nginx/sites-available/default
+COPY supervisord.sample.conf /etc/supervisor/conf.d/supervisord.conf
 
 # --- 端口暴露 ---
 EXPOSE 22
