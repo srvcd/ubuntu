@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-LABEL org.opencontainers.image.source="https://github.com/vevc/ubuntu"
+LABEL org.opencontainers.image.source="https://github.com/srvcd/ubuntu"
 
 # --- 修正：将多行 ENV 拆分成单行，确保正确的赋值格式 ---
 ENV TZ=Asia/Shanghai
