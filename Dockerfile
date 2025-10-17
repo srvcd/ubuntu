@@ -12,7 +12,7 @@ ENV PHP_VERSION=8.1
 COPY entrypoint.sh /entrypoint.sh
 COPY reboot.sh /usr/local/sbin/reboot
 COPY default.conf /etc/nginx/sites-available/default
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord.sample.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN export DEBIAN_FRONTEND=noninteractive; \
     apt-get update; \
